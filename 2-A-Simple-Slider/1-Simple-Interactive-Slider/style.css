@@ -1,0 +1,17 @@
+.slider_slide {
+   width: 100%;
+   max-width: 900px;
+   display: none;
+}
+
+.slider_slide:first-child {
+   display: block;
+}
+
+.slider_slide > img {
+   width: 100%
+}
+
+.slider_nav {
+   padding: 15px
+}
