@@ -1,0 +1,72 @@
+.slider {
+   width: 100%;
+   max-width: 900px;
+}
+
+.slider_slide {
+   width: 100%;
+   display: none;
+}
+
+.slider_slide:first-child {
+   display: block;
+}
+
+.slider_slide > img {
+   width: 100%
+}
+
+.slider_nav {
+   padding: 15px
+}
+
+
+.slider_pagination_btn {
+   display: inline-block;
+   padding: 6px;
+   cursor: pointer;
+
+   /* Override default button styles */
+   border: none;
+   outline: none;
+   background-color: transparent;
+}
+
+/* Actual pagination circle */
+.slider_pagination_btn:before {
+   content: '';
+   display: inline-block;
+   padding: 6px;
+   border-radius: 100%;
+   background-color: #ccc;
+}
+
+.slider_pagination_btn:hover:before {
+   background-color: #aaa;
+}
+
+.slider_pagination_btn:focus:before {
+   background-color: #777;
+}
+
+.slider_pagination_btn.slider_pagination_btn--sel:before {
+   background-color: black
+}
+
+
+.slider_progress-bar {
+   width: 100%;
+   height: 7px;
+   background-color: #eee;
+}
+
+.slider_progress-bar_bar {
+   width: 0;
+   height: 100%;
+   background-color: #555;
+}
+
+.slider_progress-bar_bar--moving {
+   transition: 4s linear;
+   width: 100%;
+}

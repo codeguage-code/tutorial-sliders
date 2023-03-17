@@ -7,6 +7,10 @@ var slidesLength = slideElements.length;
 function navigateSlider() {
    if (enableAutoplay) {
       Autoplay.reset();
+
+      if (enableProgressBar) {
+         ProgressBar.reset();
+      }
    }
 
    // Note that we are using repeat-the-flow behavior over here, as that suits
@@ -76,10 +80,42 @@ var Autoplay = {
 }
 
 
+var ProgressBar = {
+   element: document.getElementsByClassName('slider_progress-bar_bar')[0],
+   timerId: null,
+
+   start: function() {
+      var _this = this;
+      this.timerId = setTimeout(function() {
+         _this.element.classList.add('slider_progress-bar_bar--moving');
+      }, 0);
+   },
+
+   stop: function() {
+      this.element.classList.remove('slider_progress-bar_bar--moving');
+      clearTimeout(this.timerId);
+   },
+
+   reset: function() {
+      this.stop();
+      this.start();
+   }
+};
+
+
 var enableAutoplay = true;
+var enableProgressBar = Boolean(ProgressBar.element);
+
+if (enableProgressBar && !enableAutoplay) {
+   throw new Error('enableAutoplay must be true when a progress bar is desired.');
+}
 
 if (enableAutoplay) {
    Autoplay.start();
+
+   if (enableProgressBar) {
+      ProgressBar.start();
+   }
 }
 
 
